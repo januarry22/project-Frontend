@@ -16,7 +16,7 @@
       매출 통계 및 분석
     </v-tab>
     <v-tab href="#tab-4">
-      매출 합계
+      총 매출 정산
     </v-tab>
   </v-tabs>
     <v-tabs-items v-model="tab">
@@ -39,7 +39,9 @@
             </v-card>
             <v-card flat>
               <b v-if ="i===4">
-              <Sales_amount/></b>
+              <Sales_amount/>
+              <Sales_report/>
+              </b>
             </v-card>
 
         </v-tab-item>
@@ -49,10 +51,13 @@
 </template>
 
 <script>
+
+
 import Sales_deal from './sale/Sales_deal'
 import Sales_amount from './sale/Sales_amount'
 import Sales_info from './sale/Sales_info'
 import Sales_manage from './sale/Sales_manage'
+import Sales_report from './sale/Sales_report'
   export default {
     data () {
       return {
@@ -63,7 +68,8 @@ import Sales_manage from './sale/Sales_manage'
         Sales_deal,
         Sales_amount,
         Sales_info,
-        Sales_manage
+        Sales_manage,
+        Sales_report
     }
   }
 </script>

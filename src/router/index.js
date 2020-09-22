@@ -3,13 +3,12 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Service from '../views/Service.vue'
 import Login from '../views/Login.vue'
+import SignUp from '../views/SignUp.vue'
 
 import HR from '../views/service/HR.vue'
 import Sales from '../views/service/Sales.vue'
 import Stock from '../views/service/Stock.vue'
 import Expand from '../views/service/Expand.vue'
-
-import VueChartJS from '@/components/VueChartJS'
 
 
 Vue.use(VueRouter)
@@ -20,15 +19,16 @@ const routes = [
     name: "Home",
     component: Home
   },
-  {
-    path: '/chartjs',
-    name: 'VueChartJS',
-    component: VueChartJS
-  },
+
   {
     path: "/login",
     name: "Login",
     component: Login
+  },
+  {
+    path: "/signup",
+    name: "SignUp",
+    component: SignUp
   },
   {
     path: "/service",

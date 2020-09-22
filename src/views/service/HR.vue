@@ -30,7 +30,8 @@
             </v-card>
             <v-card flat>
               <b v-if ="i===2">
-              <HR_amount/></b>
+              <HR_amount/>
+              <HR_report/></b>
             </v-card>
             <v-card flat>
               <b v-if ="i===3">
@@ -52,6 +53,7 @@ import HR_amount from './human/HR_amount'
 import HR_manage from './human/HR_manage'
 import HR_pay from './human/HR_pay'
 import HR_seller from './human/HR_seller'
+import HR_report from './human/HR_report'
   export default {
     data () {
       return {
@@ -62,7 +64,8 @@ import HR_seller from './human/HR_seller'
         HR_amount,
         HR_manage,
         HR_pay,
-        HR_seller
+        HR_seller,
+        HR_report
     }
   }
 </script>

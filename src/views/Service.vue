@@ -34,7 +34,6 @@
             height="200px" router :to ="{name:'HR'}">
             인사
           </v-btn>
-          <li><router-link to="/chartjs">vue-chartjs</router-link></li>
         </v-row>
       </v-col>
 

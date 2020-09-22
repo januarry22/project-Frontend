@@ -1,5 +1,21 @@
 <template>
   <v-container fluid>
+       <v-select
+          v-model="value"
+          :items="items"
+          label="Select Item"
+          multiple
+        >
+      <template v-slot:selection="{ item, index }">
+        <v-chip v-if="index === 0">
+          <span>{{ item }}</span>
+        </v-chip>
+        <span
+          v-if="index === 1"
+          class="grey--text caption"
+        >(+{{ value.length - 1 }} others)</span>
+      </template>
+    </v-select>
     <v-sparkline
       :fill="fill"
       :gradient="gradient"
@@ -114,6 +130,7 @@
       radius: 10,
       value: [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0],
       width: 2,
+      items: ['foo', 'bar', 'fizz', 'buzz', 'fizzbuzz', 'foobar'],
     }),
   }
 </script>

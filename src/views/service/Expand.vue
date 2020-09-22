@@ -23,15 +23,15 @@
             :value="'tab-' + i">
             <v-card flat>
               <b v-if ="i===1">
-              <Expand_manage/></b>
+              <Expand_info/></b>
             </v-card>
             <v-card flat>
               <b v-if ="i===2">
-              <Expand_amount/></b>
+              <Expand_manage/></b>
             </v-card>
             <v-card flat>
               <b v-if ="i===3">
-              <Expand_info/></b>
+              <Expand_amount/></b>
             </v-card>
 
         </v-tab-item>

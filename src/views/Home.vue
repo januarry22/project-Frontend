@@ -23,6 +23,9 @@
       </v-sheet>
     </v-carousel-item>
   </v-carousel>
+  
+  
+
 </template>
 
 
