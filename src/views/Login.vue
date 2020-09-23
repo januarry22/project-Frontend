@@ -72,7 +72,7 @@ export default{
 
     },
     computed:{
-        ...mapState(["login_err, login_success"])
+        ...mapState(["login_err", "login_success"])
     }
 }
 </script>

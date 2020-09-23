@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import router from '../router/index'
 
 import Route from '../router/index'
 
@@ -9,16 +10,16 @@ export default new Vuex.Store({
   state: {
       Userinfo: null,
       UserList: [
-                {   UserId :'yy',
-                    UserPassword :'yy',
-                    UserName :'yy',
+                {   UserId :"yy",
+                    UserPassword :"yy",
+                    UserName :"yy",
                     UserPhone :'123' }
             ],
       login_err: false,
       login_success: false
   },
   getters: {
-    allUsers: state=>{
+    allUsers: state=> {
       return state.UserList.length
     }
   },
@@ -28,7 +29,7 @@ export default new Vuex.Store({
       state.UserList.push(payload)
       Route.push("/login")
     },
-    
+
     Login:(state, payload)=> {
       let loginUser = null
       state.UserList.forEach(user => {
@@ -48,9 +49,16 @@ export default new Vuex.Store({
             
             state.login_success=true
             state.login_err=false
+            state.Userinfo=state.UserList.find(c => c.UserId===payload.login_ID)
             Route.push("/")
           }
       }
+  }
+  ,
+  Logout:(state) => {
+    state.login_success=false
+    state.login_err=false
+    state.Userinfo=null
   }
   },
   actions: {
@@ -58,7 +66,11 @@ export default new Vuex.Store({
       commit('NewUsers', payload)
     },
     Login({commit}, payload){
-      commit('Login', payload)
+      commit("Login", payload)
+    },
+    Logout({commit}){
+      commit("Logout")
+      Route.push("/")
     }
 
   },
