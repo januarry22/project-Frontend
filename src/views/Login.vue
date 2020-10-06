@@ -47,7 +47,7 @@
                     </v-card-text>
                     <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" @click="Login({login_ID,login_password})">Login</v-btn>
+                    <v-btn color="primary" @click="Login({userID:login_ID,user_passwd:login_password})">Login</v-btn>
                     <v-btn color="#ECEFF1" router :to="{name:'SignUp'}">Sign Up</v-btn>
                     </v-card-actions>
                     </v-card>
@@ -62,17 +62,19 @@ import  {mapActions, mapState} from 'vuex'
 export default{
     data() {
         return{
-            login_ID: null,
-            login_password: null,
+            userID: "",
+            user_passwd: "",
 
         }
     },
     methods: {
-        ...mapActions(["Login"])
-
+        //...mapActions(["Login"])
+        Login(payload){
+            this.$store.dispatch('loginProcess',payload)
+        }
     },
-    computed:{
-        ...mapState(["login_err", "login_success"])
-    }
+    // computed:{
+    //     ...mapState(["login_err", "login_success"])
+    // }
 }
 </script>

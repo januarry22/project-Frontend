@@ -19,7 +19,7 @@
                     label="Id"
                     name="UserId"
                     prepend-icon="mdi-account"
-                    v-model="UserId"
+                    v-model="member.user_id"
                     type="text"
                     ></v-text-field>
 
@@ -27,7 +27,7 @@
                     id="UserPassword"
                     label="Password"
                     name="UserPassword"
-                    v-model="UserPassword"
+                    v-model="member.user_passwd"
                     prepend-icon="mdi-lock"
                     type="password"
                     ></v-text-field>
@@ -36,11 +36,11 @@
                     id="UserName"
                     label="Name"
                     name="UserName"
-                    v-model="UserName"
+                    v-model="member.user_name"
                     prepend-icon="mdi-card-account-details"
                     type="text"
                     ></v-text-field>
-
+<!-- 
                     <v-text-field
                     id="UserPhone"
                     label="Phone"
@@ -48,7 +48,7 @@
                     v-model="UserPhone"
                     prepend-icon="mdi-phone"
                     type="number"
-                    ></v-text-field>
+                    ></v-text-field> -->
 
                     </v-form>
                     </v-card-text>
@@ -69,25 +69,30 @@ import {mapActions} from 'vuex'
 export default{
    data(){
        return{
-           UserId :null,
-           UserPassword :null,
-           UserName :null,
-           UserPhone :null
+         member: {  
+             user_id: '',
+             user_passwd : '',
+             user_name : ''
+         }
        }
    },
    methods:{
-       ...mapActions(['NewUsers']),
+       ...mapActions(['REQUEST_JOIN']),
        SignUp(){
-        let Users={
-            UserId:this.UserId,
-            UserPassword:this.UserPassword,
-            UserName:this.UserName,
-            UserPhone:this.UserPhone
-        }
-        console.log(Users)
-        this.NewUsers(Users)
+           if(this.$$refs.form.validate()){
+               this.START_LOADING();
+               this.REQUEST_JOIN(this.member);
+           }
+    //     let Users={
+    //         user_id:this.user_id,
+    //         user_passwd:this.user_passwd,
+    //         user_name:this.user_name
+    //     }
+    //     console.log(Users)
+    //     this.NewUsers(Users)
 
-       }
+    //    }
+
    }
 }
 </script>
